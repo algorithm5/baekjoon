@@ -1,56 +1,60 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-long long AB[4000*4000], CD[4000*4000];
+int main()
+{
+	int size = 0;
 
-int main(void){
-//	ios_base::sync_with_stdio(0);
-//	cin.tie(0); //실행속도 향상
-	
-	long A[4000] = {0,};
-	long B[4000] = {0,};
-	long C[4000] = {0,};
-	long D[4000] = {0,};
+	cin >> size;
 
-	int t=0;
-	cin>>t;
-	for(int i=0; i<t; i++){
-		cin>>A[i]>>B[i]>>C[i]>>D[i];
+	int *arr = new int[size];
+	int *arr2 = new int[size];
+	int *arr3 = new int[size];
+	int *arr4 = new int[size];
+
+	for (int i = 0; i < size; i++) 
+	{
+		cin >> arr[i];
+		cin >> arr2[i];
+		cin >> arr3[i];
+		cin >> arr4[i];
 	}
-	
-	int index = 0;
-	for(int i=0; i<t; i++){
-		for(int j=0; j<t; j++){
-			AB[index] = A[i]+B[j];
-			CD[index++] = C[i]+D[j];
+
+	int *sum_arr = new int[size * size];
+	int *sum_arr2 = new int[size * size];
+
+	int cnt = 0;
+
+	for (int i= 0; i < size; i++)
+	{
+		for (int j = 0; j < size; j++) 
+		{
+			sum_arr[cnt] = arr[i] + arr2[j];
+			sum_arr2[cnt] = arr3[i] + arr4[j];
+			cnt++;
 		}
 	}
-	
-	sort(CD, CD + t*t);
-	
-	long long cnt = 0;
-    long left = 0, right = t*t;
- 
-    for (int i = 0; i < t * t; i++) {    
- 
-        while (left < right) {
-            long long mid = (left + right) / 2;
-            if (AB[i] + CD[mid] < 0) left = mid + 1;
-            else right = mid;
-        }
-        long lower_bound = right;
-        left = 0, right = t*t;
- 
-        while (left < right) {
-            long long mid = (left + right) / 2;
- 
-            if (AB[i] + CD[mid] <= 0) left = mid + 1;
-            else right = mid;
-        }
-        long upper_bound = right;
- 
-        cnt += upper_bound - lower_bound;
-        left = 0, right = t*t;
-    }
-    cout<<cnt<<endl;
+
+	delete arr;
+	delete arr2;
+	delete arr3;
+	delete arr4;
+
+	sort(sum_arr, sum_arr + size * size);
+	sort(sum_arr2, sum_arr2 + size * size);
+
+	long cnt_val = 0;
+
+	for (int i = 0; i < size * size; i++) 
+	{
+		int lower_val = lower_bound(sum_arr, sum_arr + size * size, sum_arr2[i] * -1) - sum_arr;
+		int upper_val = upper_bound(sum_arr, sum_arr + size * size, sum_arr2[i] * -1) - sum_arr;
+
+		cnt_val += (upper_val - lower_val);
+	}
+
+	cout << cnt_val;
+
+	delete sum_arr;
+	delete sum_arr2;
 }
