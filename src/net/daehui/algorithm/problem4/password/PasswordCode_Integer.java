@@ -1,13 +1,13 @@
-package net.daehui.algorithm.password;
+package net.daehui.algorithm.problem4.password;
 
 import java.util.Scanner;
 
-public class PasswordCode {
+public class PasswordCode_Integer {
 	int password;	// 암호
 	int wordNum;	// 나올 수 있는 해석의 가짓수
 	
 	@SuppressWarnings("resource")
-	public PasswordCode() {
+	public PasswordCode_Integer() {
 		try {
 			String input = new Scanner(System.in).nextLine();	// 사용자로부터 암호 입력
 			
@@ -26,7 +26,7 @@ public class PasswordCode {
 	}
 	
 	public static void main(String[] args) {
-		PasswordCode pwCode = new PasswordCode();
+		PasswordCode_Integer pwCode = new PasswordCode_Integer();
 		
 		pwCode.calWordNum();	// 나올 수 있는 해석의 가짓수 계산
 		pwCode.printWordNum();	// 나올 수 있는 해석의 가짓수 출력

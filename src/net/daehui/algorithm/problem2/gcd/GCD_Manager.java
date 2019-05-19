@@ -1,4 +1,4 @@
-package net.daehui.algorithm.gcd;
+package net.daehui.algorithm.problem2.gcd;
 
 public class GCD_Manager {
 	int accGCD;

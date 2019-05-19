@@ -1,4 +1,4 @@
-package net.daehui.algorithm.rsp;
+package net.daehui.algorithm.problem3.rsp;
 
 import java.util.Scanner;
 

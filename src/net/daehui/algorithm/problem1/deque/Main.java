@@ -1,4 +1,4 @@
-package net.daehui.algorithm.deque;
+package net.daehui.algorithm.problem1.deque;
 
 import java.util.Scanner;
 
