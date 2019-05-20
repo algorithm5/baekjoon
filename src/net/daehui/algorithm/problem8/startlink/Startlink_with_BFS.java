@@ -3,12 +3,12 @@ package net.daehui.algorithm.problem8.startlink;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Startlink_BFS {
+public class Startlink_with_BFS {
 	int[] floor;	// F, S, G, U, D
 	int cntMin;	// 눌러야 하는 버튼 수의 최솟값
 	
 	@SuppressWarnings("resource")
-	public Startlink_BFS() {
+	public Startlink_with_BFS() {
 		String[] inputN = new Scanner(System.in).nextLine().split(" ");	// 사용자로부터 F, S, G, U, D 값 입력 
 		
 		this.floor = new int[5];
@@ -20,7 +20,7 @@ public class Startlink_BFS {
 	}
 	
 	public static void main(String[] args) {
-		Startlink_BFS startlink = new Startlink_BFS();
+		Startlink_with_BFS startlink = new Startlink_with_BFS();
 		boolean[] visit = new boolean[startlink.floor[0]];	// BFS를 위한 방문된 정점 배열 선언
 		ArrayList<Integer> queue = new ArrayList<>();	// BFS를 위한 Queue 선언
 		

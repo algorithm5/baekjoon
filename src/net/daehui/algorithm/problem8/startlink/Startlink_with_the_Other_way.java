@@ -2,12 +2,12 @@ package net.daehui.algorithm.problem8.startlink;
 
 import java.util.Scanner;
 
-public class Starlink_The_Other {
+public class Startlink_with_the_Other_way {
 	int[] floor;	// F, S, G, U, D
 	int cntMin;	// 눌러야 하는 버튼 수의 최솟값
 	
 	@SuppressWarnings("resource")
-	public Starlink_The_Other() {
+	public Startlink_with_the_Other_way() {
 		String[] inputN = new Scanner(System.in).nextLine().split(" ");	// 사용자로부터 F, S, G, U, D 값 입력
 		
 		this.floor = new int[5];
@@ -17,7 +17,7 @@ public class Starlink_The_Other {
 	}
 	
 	public static void main(String[] args) {
-		Starlink_The_Other startlink = new Starlink_The_Other();
+		Startlink_with_the_Other_way startlink = new Startlink_with_the_Other_way();
 		
 		if(startlink.calMin()) {
 			System.out.println(startlink.cntMin);
