@@ -3,26 +3,26 @@ package net.daehui.algorithm.problem8.startlink;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Temp {
-	int[] floor;
-	int count;
+public class Startlink_BFS {
+	int[] floor;	// F, S, G, U, D
+	int cntMin;	// 눌러야 하는 버튼 수의 최솟값
 	
 	@SuppressWarnings("resource")
-	public Temp() {
-		String[] inputN = new Scanner(System.in).nextLine().split(" ");
+	public Startlink_BFS() {
+		String[] inputN = new Scanner(System.in).nextLine().split(" ");	// 사용자로부터 F, S, G, U, D 값 입력 
 		
 		this.floor = new int[5];
 		for(int i = 0; i < inputN.length; i++) {
 			this.floor[i] = Integer.parseInt(inputN[i]);
 		}
 		
-		count = 0;
+		cntMin = 0;
 	}
 	
 	public static void main(String[] args) {
-		Temp startlink = new Temp();
-		boolean[] visit = new boolean[startlink.floor[0]];
-		ArrayList<Integer> queue = new ArrayList<>();
+		Startlink_BFS startlink = new Startlink_BFS();
+		boolean[] visit = new boolean[startlink.floor[0]];	// BFS를 위한 방문된 정점 배열 선언
+		ArrayList<Integer> queue = new ArrayList<>();	// BFS를 위한 Queue 선언
 		
 		queue.add(startlink.floor[1]);
 		visit[startlink.floor[1] - 1] = true;
@@ -46,7 +46,7 @@ public class Temp {
 			}
 			
 			if(upPost == startlink.floor[2] || downPost == startlink.floor[2]) {
-				startlink.printCount(startlink.count);
+				startlink.printCount(++startlink.cntMin);
 				System.exit(0);;
 			}
 			
@@ -54,7 +54,7 @@ public class Temp {
 			queue.add(downPost);
 			visit[upPost - 1] = true;
 			visit[downPost - 1] = true;
-			startlink.count++;
+			startlink.cntMin++;
 		}
 		
 		System.out.println("use the stairs");
@@ -65,7 +65,7 @@ public class Temp {
 		
 		for(int i = 0; i < base.length; i++) {
 			if(base[i]) {
-				count++;
+				cntMin++;
 			}
 		}
 		
