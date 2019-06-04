@@ -24,5 +24,9 @@ int main()
     }
     dp[i + 1] = min(dp[i + 1], dp[i] + 1);
   }
+  for (int i = 0; i <= 100; ++i)
+  {
+    printf("%d %d\n", i, dp[i]);
+  }
   printf("%d\n", dp[n]);
 }
