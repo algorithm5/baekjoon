@@ -9,7 +9,6 @@ void calc(int n){
 	}
 }
 
-
 int main(void){
 	int n;
 	cin>>n;
