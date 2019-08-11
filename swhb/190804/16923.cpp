@@ -7,7 +7,6 @@ int main(void){
 	ios_base::sync_with_stdio(0);
 	cin.tie(0); cout.tie(0);
 	int exe_cases[26] = {0,};
-//	fill_n(exe_cases, 26, -1);
 	string s;
 	cin>>s;
 	string rev_s = s;
